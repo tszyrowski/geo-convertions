@@ -14,7 +14,7 @@ def plot_line(ax, ob):
     x, y = ob.xy
     ax.plot(x, y, color='gray', linewidth=3, solid_capstyle='round', zorder=1)
 
-line = LineString([(0, 0), (1, 1), (0, 2), (2, 2), (3, 1), (1, 0)])
+line = LineString([(0, 0), (1, 1), (0, 3), (2, 3), (3, 1), (3, -1),(2, -1), (-1, 1)])
 
 fig = pyplot.figure(1, dpi=90)
 

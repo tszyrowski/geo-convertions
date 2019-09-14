@@ -50,12 +50,8 @@ def plot_points(points, fig=None):
     
     if not fig:
         fig = figure(title="points plot")
-    x = []
-    y = []
-    for point in points:
-        x.append(point.xy[0].tolist()[0])
-        y.append(point.xy[1].tolist()[0])
-    print(x, '\n', y)
+    x = [point.x for point in points]
+    y = [point.y for point in points]
     fig.circle(x,y, color="orange")
     return fig
 

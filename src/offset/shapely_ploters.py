@@ -7,8 +7,38 @@ from shapely.geometry import Point, LineString, MultiLineString
 from bokeh.plotting import figure
 from bokeh.io import show
 
+cmp = ('aliceblue', 'antiquewhite', 'aqua', 'aquamarine', 'azure', 'beige',
+       'bisque', 'black', 'blanchedalmond', 'blue', 'blueviolet', 'brown',
+       'burlywood', 'cadetblue', 'chartreuse', 'chocolate', 'coral',
+       'cornflowerblue', 'cornsilk', 'crimson', 'cyan', 'darkblue', 'darkcyan',
+       'darkgoldenrod', 'darkgray', 'darkgreen', 'darkgrey', 'darkkhaki',
+       'darkmagenta', 'darkolivegreen', 'darkorange', 'darkorchid', 'darkred',
+       'darksalmon', 'darkseagreen', 'darkslateblue', 'darkslategray',
+       'darkslategrey', 'darkturquoise', 'darkviolet', 'deeppink',
+       'deepskyblue', 'dimgray', 'dimgrey', 'dodgerblue', 'firebrick',
+       'floralwhite', 'forestgreen', 'fuchsia', 'gainsboro', 'ghostwhite',
+       'gold', 'goldenrod', 'gray', 'green', 'greenyellow', 'grey', 'honeydew',
+       'hotpink', 'indianred', 'indigo', 'ivory', 'khaki', 'lavender',
+       'lavenderblush', 'lawngreen', 'lemonchiffon', 'lightblue', 'lightcoral',
+       'lightcyan', 'lightgoldenrodyellow', 'lightgray', 'lightgreen',
+       'lightgrey', 'lightpink', 'lightsalmon', 'lightseagreen', 'lightskyblue',
+       'lightslategray', 'lightslategrey', 'lightsteelblue', 'lightyellow',
+       'lime', 'limegreen', 'linen', 'magenta', 'maroon', 'mediumaquamarine',
+       'mediumblue', 'mediumorchid', 'mediumpurple', 'mediumseagreen',
+       'mediumslateblue', 'mediumspringgreen', 'mediumturquoise',
+       'mediumvioletred', 'midnightblue', 'mintcream', 'mistyrose', 'moccasin',
+       'navajowhite', 'navy', 'oldlace', 'olive', 'olivedrab', 'orange',
+       'orangered', 'orchid', 'palegoldenrod', 'palegreen', 'paleturquoise',
+       'palevioletred', 'papayawhip', 'peachpuff', 'peru', 'pink', 'plum',
+       'powderblue', 'purple', 'red', 'rosybrown', 'royalblue', 'saddlebrown',
+       'salmon', 'sandybrown', 'seagreen', 'seashell', 'sienna', 'silver',
+       'skyblue', 'slateblue', 'slategray', 'slategrey', 'snow', 'springgreen',
+       'steelblue', 'tan', 'teal', 'thistle', 'tomato', 'turquoise', 'violet',
+       'wheat', 'white', 'whitesmoke', 'yellow', 'yellowgreen')
+
 def plot_points(points, fig=None, color=None):
     """Function takes array of shapely points, create to list of x, y and plots points on a figure."""
+    #TODO: check for different input for point (list of coords, single point ..)
     if not color:
         color="orange"
     if not fig:
@@ -36,8 +66,8 @@ def plot_line(line_ob, fig=None, color=None):
     if type(line_ob) is LineString:
         _plot_line(line_ob, fig, color)
     elif type(line_ob) is MultiLineString:
+        col = 0
         if not color:
-            col = 0
             cmp = ['blue', 'red', 'green', 'gray', 'yellow']  
             color = cmp[col]
         for ob in line_ob:
